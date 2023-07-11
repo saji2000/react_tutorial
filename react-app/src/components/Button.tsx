@@ -1,11 +1,13 @@
-const handleClick = () => {
-  console.log("Button Clicked");
-};
+interface Props {
+  children: string;
+  color?: "primary" | "secondary" | "danger";
+  onClick: () => void;
+}
 
-const Button = ({ text }: { text: string }) => {
+const Button = ({ children, color = "primary", onClick }: Props) => {
   return (
-    <button type="button" className="btn btn-primary" onClick={handleClick}>
-      {text}
+    <button type="button" className={"btn btn-" + color} onClick={onClick}>
+      {children}
     </button>
   );
 };
